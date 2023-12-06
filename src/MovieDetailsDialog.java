@@ -1,9 +1,15 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class MovieDetailsDialog extends JDialog {
+public
+
+class MovieDetailsDialog extends JDialog {
 
     private Movie movie;
+    private ButtonGroup showtimeButtonGroup;
+    private JPanel showtimePanel;
 
     public MovieDetailsDialog(Movie movie) {
         this.movie = movie;
@@ -18,21 +24,30 @@ public class MovieDetailsDialog extends JDialog {
         detailsPanel.add(new JLabel(movie.getName()));
         detailsPanel.add(new JLabel("Genre:"));
         detailsPanel.add(new JLabel(movie.getGenre()));
-        detailsPanel.add(new JLabel("Showtime:"));
-        detailsPanel.add(new JLabel(movie.getShowtime()));
+        detailsPanel.add(new JLabel("Cinema:"));
+        detailsPanel.add(new JLabel(movie.getCinema().getHallName()));
 
-        // Create a panel for ticket booking
-        JPanel bookingPanel = new JPanel();
-        bookingPanel.setLayout(new FlowLayout());
-        JLabel bookingLabel = new JLabel("Select seats and book tickets:");
-        bookingPanel.add(bookingLabel);
+        // Create a panel for selecting showtime
+        showtimePanel = new JPanel();
+        showtimeButtonGroup = new ButtonGroup();
+        String showtime = null;
 
-        // Add the details and booking panels to the dialog
+        for (int i = 0; i < 4; i++) {
+            String currentShowtime = movie.getShowtime(); // Assign the current element to 'currentShowtime'
+            JRadioButton showtimeRadioButton = new JRadioButton(currentShowtime); // Use 'currentShowtime' to create the radio button
+            showtimeButtonGroup.add(showtimeRadioButton);
+            showtimePanel.add(showtimeRadioButton);
+        }
+
+        // Select the default showtime
+        ((JRadioButton) showtimeButtonGroup.getElements().nextElement()).setSelected(true);
+
+        // Add the details and showtime panels to the dialog
         add(detailsPanel, BorderLayout.NORTH);
-        add(bookingPanel, BorderLayout.CENTER);
+        add(showtimePanel, BorderLayout.CENTER);
 
         // Set the dialog size and pack the components
-        setSize(400, 200);
+        setSize(400, 250);
         pack();
     }
 }

@@ -1,5 +1,3 @@
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.*;
@@ -7,15 +5,16 @@ import java.util.LinkedList;
 
 public class Main {
 
+    private static final String[] SHOWTIMES = {"8:00 AM", "10:00 AM", "2:00 PM", "4:00 PM"};
     public static void main(String[] args) {
         LinkedList<Movie> movies = new LinkedList<>();
         Cinema hall1 = new Cinema(1, "Hall 1");
         Cinema hall2 = new Cinema(2, "Hall 2");
-        Movie movie1 = new Movie(1, "The Lord of The Rings", "Adventure", "8:00 PM", hall1);
-        Movie movie2 = new Movie(2, "The Godfather", "Drama", "4:00 PM", hall2);
-        Movie movie3 = new Movie(3, "The Avengers", "Action", "10:00 AM", hall2);
-        Movie movie4 = new Movie(4, "Leon the Professional", "Action", "3:00 PM", hall1);
-        Movie movie5 = new Movie(5, "Dunkirk", "War", "2:00 PM", hall1);
+        Movie movie1 = new Movie(1, "The Lord of The Rings", "Adventure", SHOWTIMES, hall1);
+        Movie movie2 = new Movie(2, "The Godfather", "Drama", SHOWTIMES, hall2);
+        Movie movie3 = new Movie(3, "The Avengers", "Action", SHOWTIMES, hall2);
+        Movie movie4 = new Movie(4, "Leon the Professional", "Action", SHOWTIMES, hall1);
+        Movie movie5 = new Movie(5, "Dunkirk", "War", SHOWTIMES, hall1);
         movies.add(movie1);
         movies.add(movie2);
         movies.add(movie3);
@@ -47,7 +46,7 @@ public class Main {
         list.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (e.getClickCount() == 1) {
+                if (e.getClickCount() == 2) {
                     // Get the selected movie
                     Movie selectedMovie = list.getSelectedValue();
 

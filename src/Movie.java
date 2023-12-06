@@ -4,11 +4,11 @@ public class Movie {
      private String genre;
     private String showtime;
     private Cinema cinema;
-    public Movie (int movieID,String name, String genre, String showtime, Cinema cinema){
+    public Movie (int movieID, String name, String genre, String[] showtime, Cinema cinema){
         this.movieID = movieID;
         this.name = name;
         this.genre = genre;
-        this.showtime = showtime;
+        this.showtime = showtime[0];
         this.cinema = cinema;
     };
 
@@ -24,6 +24,9 @@ public class Movie {
     public String getShowtime(){
         return showtime;
     };
+    public void setSelectedShowtime(String selectedShowtime) {
+        this.showtime = selectedShowtime;
+    }
     public Cinema getCinema(){
         return cinema;
     }
