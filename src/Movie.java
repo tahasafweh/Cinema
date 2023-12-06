@@ -2,13 +2,13 @@ public class Movie {
      private int movieID;
      private String name;
      private String genre;
-    private String showtime;
+    private String[] showtime;
     private Cinema cinema;
     public Movie (int movieID, String name, String genre, String[] showtime, Cinema cinema){
         this.movieID = movieID;
         this.name = name;
         this.genre = genre;
-        this.showtime = showtime[0];
+        this.showtime = showtime;
         this.cinema = cinema;
     };
 
@@ -21,17 +21,14 @@ public class Movie {
     public String getGenre(){
         return genre;
     };
-    public String getShowtime(){
+    public String[] getShowtime(){
         return showtime;
     };
-    public void setSelectedShowtime(String selectedShowtime) {
-        this.showtime = selectedShowtime;
-    }
     public Cinema getCinema(){
         return cinema;
     }
     @Override
     public String toString() {
-        return name + " (" + genre + ") - " + showtime + " @ " + cinema.getHallName();
+        return name + " (" + genre + ") - " + "8:00 AM - 4:00 PM" + " @ " + cinema.getHallName();
     }
 }

@@ -5,16 +5,21 @@ import java.util.LinkedList;
 
 public class Main {
 
-    private static final String[] SHOWTIMES = {"8:00 AM", "10:00 AM", "2:00 PM", "4:00 PM"};
+    private static final String[] SHOWTIMES1 = {"8:00 AM", "12:00 AM", "2:00 PM", "4:00 PM"};
+    private static final String[] SHOWTIMES2 = {"10:00 AM", "1:00 AM", "2:00 PM"};
+    private static final String[] SHOWTIMES3 = {"8:00 AM", "10:00 AM", "2:00 PM", "4:00 PM"};
+    private static final String[] SHOWTIMES4 = {"8:00 AM", "10:00 AM", "2:00 PM", "4:00 PM"};
+    private static final String[] SHOWTIMES5 = {"8:00 AM", "10:00 AM", "2:00 PM", "4:00 PM"};
     public static void main(String[] args) {
         LinkedList<Movie> movies = new LinkedList<>();
         Cinema hall1 = new Cinema(1, "Hall 1");
         Cinema hall2 = new Cinema(2, "Hall 2");
-        Movie movie1 = new Movie(1, "The Lord of The Rings", "Adventure", SHOWTIMES, hall1);
-        Movie movie2 = new Movie(2, "The Godfather", "Drama", SHOWTIMES, hall2);
-        Movie movie3 = new Movie(3, "The Avengers", "Action", SHOWTIMES, hall2);
-        Movie movie4 = new Movie(4, "Leon the Professional", "Action", SHOWTIMES, hall1);
-        Movie movie5 = new Movie(5, "Dunkirk", "War", SHOWTIMES, hall1);
+        Cinema hall3 = new Cinema(3, "Hall 3");
+        Movie movie1 = new Movie(1, "The Lord of The Rings", "Adventure", SHOWTIMES1, hall1);
+        Movie movie2 = new Movie(2, "The Godfather", "Drama", SHOWTIMES2, hall2);
+        Movie movie3 = new Movie(3, "The Avengers", "Action", SHOWTIMES3, hall3);
+        Movie movie4 = new Movie(4, "Leon the Professional", "Action", SHOWTIMES4, hall1);
+        Movie movie5 = new Movie(5, "Dunkirk", "War", SHOWTIMES5, hall1);
         movies.add(movie1);
         movies.add(movie2);
         movies.add(movie3);

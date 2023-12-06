@@ -32,8 +32,8 @@ class MovieDetailsDialog extends JDialog {
         showtimeButtonGroup = new ButtonGroup();
         String showtime = null;
 
-        for (int i = 0; i < 4; i++) {
-            String currentShowtime = movie.getShowtime(); // Assign the current element to 'currentShowtime'
+        for (int i = 0; i < movie.getShowtime().length; i++) {
+            String currentShowtime = movie.getShowtime()[i]; // Assign the current element to 'currentShowtime'
             JRadioButton showtimeRadioButton = new JRadioButton(currentShowtime); // Use 'currentShowtime' to create the radio button
             showtimeButtonGroup.add(showtimeRadioButton);
             showtimePanel.add(showtimeRadioButton);
